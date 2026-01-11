@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto To-do</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/bootstrap.css">
+</head>
+
+<body>
+    <main class="corpo">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mt-5">
+                        <h2 class="text-center">TO-DO</h2>
+
+                        <div class="d-flex flex-column w-100 p-3 align-items-center">
+
+                            <div class="d-flex flex-column w-75 mb-2">
+                                <label for="titulo" class="text-start">Título:</label>
+                                <input type="text" class="form-control" id="titulo">
+                            </div>
+
+                            <div class="d-flex flex-column w-75 mb-2">
+                                <label for="descricao" class="text-start">Descrição:</label>
+                                <input type="text" class="form-control" id="descricao">
+                            </div>
+
+                            <div class="d-flex flex-column w-75 mb-2">
+                                <label for="estado" class="text-start">Concluída:</label>
+                                <select id="estado" class="form-control">
+                                    <option value="-1">Selecione o estado</option>
+                                    <option value="0">Pendente</option>
+                                    <option value="1">Concluída</option>
+                                </select>
+                            </div>
+
+                            <div class="d-flex flex-column w-75 mb-4">
+                                <label for="criacao" class="text-start">Data criação:</label>
+                                <input type="date" id="criacao" class="form-control">
+                            </div>
+
+                            <button class="btn btn-primary w-25">Adicionar</button>
+                        </div>
+
+
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class='text-center'>Titulo</th>
+                                    <th class='text-center'>Descricao</th>
+                                    <th class='text-center'>Estado</th>
+                                    <th class='text-center'>Data criacao</th>
+                                    <th class='text-center'>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="res"></tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <script src="src/js/script.js"></script>
+    <script src="src/js/bootstrap.js"></script>
+</body>
+
+</html>
