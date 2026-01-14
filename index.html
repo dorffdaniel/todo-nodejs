@@ -12,11 +12,11 @@
 <body>
     <main class="corpo">
 
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-11">
                     <div class="card mt-5">
-                        <h2 class="text-center">TO-DO</h2>
+                        <h2 class="text-center mt-3">Task Manager</h2>
 
                         <div class="d-flex flex-column w-100 p-3 align-items-center">
 
@@ -75,7 +75,7 @@
                         <h5 class="modal-title">editar tarefa</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="corpoModal">
 
                         <div class="d-flex flex-column w-75 mb-2">
                             <label for="tituloEdit" class="text-start">Título:</label>
@@ -86,7 +86,7 @@
                             <label for="descricaoEdit" class="text-start">Descrição:</label>
                             <input type="text" class="form-control" id="descricaoEdit">
                         </div>
-                        <p>De momento a tarefa se encontra: <span id="estdTask"></span></p>
+                        <p class="mensagemModal">De momento a tarefa se encontra: <span id="estdTask"></span></p>
 
                         <div class="d-flex flex-column w-75 mb-2">
                             <label for="estadoEdit" class="text-start">Concluída:</label>
@@ -104,8 +104,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="confirmEdit()">Editar</button>
                     </div>
                 </div>
             </div>
@@ -115,9 +115,8 @@
 
     </main>
 
-
-    <script src="src/js/script.js"></script>
     <script src="src/js/bootstrap.js"></script>
+    <script src="src/js/script.js"></script>
 </body>
 
 </html>

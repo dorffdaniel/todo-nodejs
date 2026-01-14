@@ -65,8 +65,24 @@ app.get('/getEdit/:id', (req, res) => {
 
     })
 
-
 });
+
+app.put('/edit/:id', (req, res) => {
+
+    const { id } = req.params;
+    const { tituloEdit, descEdit, estadoEdit, criacaoEdit } = req.body;
+
+    let sql = "UPDATE tarefas SET titulo=?, descricao=?, estado=?, data_criacao = ? WHERE id= ?";
+
+    con.query(sql, [tituloEdit, descEdit, estadoEdit, criacaoEdit, id], (error, result) => {
+        if (error) {
+            res.status(500).json({ 'erro': 'erro ao tentar atualizar' });
+        }
+
+        res.status(200).json({ 'mensagem': 'atualizado com sucesso' });
+    })
+
+})
 
 
 

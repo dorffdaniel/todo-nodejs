@@ -6,3 +6,12 @@
 table {
     margin: .9rem;
 }
+
+#corpoModal span {
+    color: rgba(33, 112, 230, 0.933);
+}
+
+.mensagemModal {
+    color: #6d6969;
+    font-weight: bold;
+}

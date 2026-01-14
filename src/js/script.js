@@ -1,5 +1,8 @@
 const url = 'http://127.0.0.1:3001'
 
+let modal = document.getElementById('modalTasks');
+let mod = new bootstrap.Modal(modal);
+
 async function getListTask() {
 
     try {
@@ -88,19 +91,16 @@ async function addTask() {
 
 }
 
+let idTask = null;
+
 async function editTask(id) {
 
     let getEdit = url + '/getEdit';
 
     let dados = await fetch(`${getEdit}/${id}`);
 
-    console.log(dados);
-
     let res = await dados.json();
 
-    console.log(res);
-    console.log(res.id);
-    console.log(res.titulo);
     let msg = null;
     if (res.estado == 0) {
         msg = 'Pendente'
@@ -117,14 +117,65 @@ async function editTask(id) {
         document.getElementById('estdTask').innerHTML = msg;
         document.getElementById('estadoEdit').value = res.estado;
         document.getElementById('criacaoEdit').value = dataFormatada;
-
-
-        let modal = document.getElementById('modalTasks');
-        let mod = new bootstrap.Modal(modal);
+        idTask = res.id;
         mod.show();
+
     }
 
 }
+
+
+
+async function confirmEdit() {
+    let tituloEdit = document.getElementById("tituloEdit").value;
+    let descEdit = document.getElementById("descricaoEdit").value;
+    let estadoEdit = document.getElementById("estadoEdit").value;
+    let criacaoEdit = document.getElementById("criacaoEdit").value;
+
+    if (!tituloEdit || !descEdit || !criacaoEdit) {
+        alert('os campos nao podem ficarem vazios')
+        return;
+    }
+
+    if (estadoEdit == '-1') {
+        alert('seleciona o estado corretamente')
+        return;
+    }
+
+
+    const data = { tituloEdit, descEdit, estadoEdit, criacaoEdit };
+    let edit = url + '/edit'
+
+    try {
+
+        let dados = await fetch(`${edit}/${idTask}`, {
+            method: 'PUT',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        console.log(dados)
+
+        let resp = await dados.json();
+
+        if (resp.mensagem) {
+            mod.hide();
+            alert('editado com sucesso');
+            getListTask();
+
+        }
+
+        if (resp.error) {
+            console.log(resp.error);
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
+
+
+}
+
 
 
 
