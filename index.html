@@ -44,7 +44,7 @@
                                 <input type="date" id="criacao" class="form-control">
                             </div>
 
-                            <button class="btn btn-primary w-25">Adicionar</button>
+                            <button class="btn btn-primary w-25" onclick="addTask()">Adicionar</button>
                         </div>
 
 
@@ -66,6 +66,52 @@
                 </div>
             </div>
         </div>
+
+        <!--    modal  -->
+        <div class="modal" tabindex="-1" id="modalTasks">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">editar tarefa</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="d-flex flex-column w-75 mb-2">
+                            <label for="tituloEdit" class="text-start">Título:</label>
+                            <input type="text" class="form-control" id="tituloEdit">
+                        </div>
+
+                        <div class="d-flex flex-column w-75 mb-2">
+                            <label for="descricaoEdit" class="text-start">Descrição:</label>
+                            <input type="text" class="form-control" id="descricaoEdit">
+                        </div>
+                        <p>De momento a tarefa se encontra: <span id="estdTask"></span></p>
+
+                        <div class="d-flex flex-column w-75 mb-2">
+                            <label for="estadoEdit" class="text-start">Concluída:</label>
+                            <select id="estadoEdit" class="form-control">
+                                <option value="-1">Selecione o estado</option>
+                                <option value="0">Pendente</option>
+                                <option value="1">Concluída</option>
+                            </select>
+                        </div>
+
+                        <div class="d-flex flex-column w-75 mb-4">
+                            <label for="criacaoEdit" class="text-start">Data criação:</label>
+                            <input type="date" id="criacaoEdit" class="form-control">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
     </main>
 
