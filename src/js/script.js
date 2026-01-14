@@ -38,7 +38,7 @@ async function getListTask() {
             msg += `<td class='text-center'> ${dataFormatada} </td>`
             msg += `<td class='text-center'>
                 <button class='btn btn-warning' onclick="editTask(${element.id})"> Editar </button>        
-                <button class='btn btn-danger'>Apagar</button>        
+                <button class='btn btn-danger' onclick="deleteTask(${element.id})">Apagar</button>        
             </td>`
             msg += `</tr>`
 
@@ -172,6 +172,28 @@ async function confirmEdit() {
     } catch (error) {
         console.log(error)
     }
+
+}
+
+async function deleteTask(id) {
+
+    let path = url + '/delete';
+
+    try {
+        let data = await fetch(`${path}/${id}`, {
+            method: 'DELETE',
+        });
+        let resp = await data.json();
+
+        if (resp.mensagem) {
+            alert(`apagado com sucesso`);
+            getListTask();
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
+
 
 
 }

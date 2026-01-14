@@ -84,7 +84,26 @@ app.put('/edit/:id', (req, res) => {
 
 })
 
+app.delete('/delete/:id', (req, res) => {
 
+    const { id } = req.params;
+
+    let sql = "DELETE FROM tarefas WHERE id= ?";
+
+    con.query(sql, [id], (error, result) => {
+        if (error) {
+            res.status(500).json({ erro: 'erro ao tentar apagar a tarefa' });
+        }
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ erro: 'Registro não encontrado' });
+        }
+
+
+        res.status(200).json({ mensagem: 'tarefa apagada com sucesso' });
+    })
+
+});
 
 
 

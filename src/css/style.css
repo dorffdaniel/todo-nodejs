@@ -7,11 +7,15 @@ table {
     margin: .9rem;
 }
 
+label {
+    font-weight: 500;
+}
+
 #corpoModal span {
     color: rgba(33, 112, 230, 0.933);
 }
 
 .mensagemModal {
-    color: #6d6969;
+    color: #969696;
     font-weight: bold;
 }
