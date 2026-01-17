@@ -2,6 +2,9 @@
 
 <img src="src/img/design.png">
 
+## 🏗 Arquitetura do projeto
+API REST + Front separado
+
 ## 📌 Sobre o projeto
 
 Aplicação criada para praticar integração entre frontend e backend, utilizando **JavaScript, Node.js e MySQL**.  
